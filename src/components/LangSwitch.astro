@@ -1,0 +1,24 @@
+---
+interface Props { current: string; label: string; tone?: 'light' | 'dark' }
+const { current, label, tone = 'light' } = Astro.props;
+const base = import.meta.env.BASE_URL;
+const langs = [
+  { code: 'de', short: 'DE', name: 'Deutsch', href: base },
+  { code: 'ru', short: 'RU', name: 'Русский', href: `${base}ru/` },
+  { code: 'et', short: 'ET', name: 'Eesti', href: `${base}et/` },
+];
+---
+<nav class={`langs langs--${tone}`} aria-label={label}>
+  {langs.map((l) => (
+    <a
+      href={l.href}
+      hreflang={l.code}
+      lang={l.code}
+      aria-current={l.code === current ? 'true' : undefined}
+      data-lang={l.code}
+    >
+      <span class="langs__long">{l.name}</span>
+      <span class="langs__short" aria-hidden="true">{l.short}</span>
+    </a>
+  ))}
+</nav>

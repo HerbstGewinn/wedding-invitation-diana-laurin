@@ -1,0 +1,54 @@
+---
+import type { Dict } from '../i18n/de';
+interface Props { t: Dict }
+const { t } = Astro.props;
+const base = import.meta.env.BASE_URL;
+const e = t.estonia;
+const groups = [
+  { title: e.groupA, items: e.a },
+  { title: e.groupB, items: e.b },
+];
+const src = (img: string) => `${base}img/estonia/${img}.webp`;
+const map = (q: string) => 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(q);
+---
+
+<section class="estonia" id="estland" aria-labelledby="estonia-h">
+  <div class="estonia__head">
+    <h2 class="script-h estonia__h" id="estonia-h" data-reveal>{e.heading}</h2>
+    <p class="estonia__intro" data-reveal style="--d: 90ms">{e.intro}</p>
+  </div>
+
+  <div class="index" data-index>
+    <div class="index__lists">
+      {groups.map((g) => (
+        <div class="index__group">
+          <h3 class="index__group-h" data-reveal>{g.title}</h3>
+          <ul class="index__list">
+            {g.items.map((it, i) => (
+              <li data-reveal style={`--d: ${i * 50}ms`}>
+                {it.img ? (
+                  <a class="index__row" href={map(it.q)} target="_blank" rel="noopener" data-preview={src(it.img)} data-name={it.name} data-group={g.title} aria-label={`${it.name} – ${e.mapLabel}`}>
+                    <img class="index__thumb" src={src(it.img)} alt="" loading="lazy" decoding="async" width="640" height="400" />
+                    <span class="index__name">{it.name}</span>
+                    <span class="index__text">{it.text}</span>
+                  </a>
+                ) : (
+                  <div class="index__row index__row--plain">
+                    <span class="index__name">{it.name}</span>
+                    <span class="index__text">{it.text}</span>
+                  </div>
+                )}
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+    <figure class="index__frame" aria-hidden="true">
+      <div class="index__pic">
+        <img alt="" src={src(e.a[0].img)} width="1200" height="900" loading="lazy" decoding="async" />
+      </div>
+      <figcaption class="index__caption"><b data-caption-name>{e.a[0].name}</b> · <span data-caption-text>{e.groupA}</span></figcaption>
+    </figure>
+  </div>
+</section>

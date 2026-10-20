@@ -1,0 +1,74 @@
+---
+import type { Dict } from '../i18n/de';
+import Grass from './Grass.astro';
+import LangSwitch from './LangSwitch.astro';
+
+interface Props { t: Dict }
+const { t } = Astro.props;
+const base = import.meta.env.BASE_URL;
+const home = t.lang === 'de' ? base : `${base}${t.lang}/`;
+const [first, second] = t.hero.names.split(' & ');
+
+const WEDDING = '2027-07-10T15:00:00+03:00';
+const daysLeft = Math.max(0, Math.ceil((Date.parse(WEDDING) - Date.now()) / 86400000));
+const form = new Intl.PluralRules(t.lang).select(daysLeft);
+const unit = t.hero.countdown.forms[form] ?? t.hero.countdown.forms.other;
+---
+
+<header class="hero" id="top">
+  <div class="hero__media" data-hero-media>
+    <img
+      class="hero__photo"
+      src={`${base}img/estonia/beautiful-kasmu-strand-in-estonia.webp`}
+      width="2000"
+      height="1125"
+      alt={t.hero.photoAlt}
+      fetchpriority="high"
+      decoding="async"
+    />
+  </div>
+  <div class="hero__scrim" aria-hidden="true"></div>
+
+  <div class="topbar">
+    <a class="wordmark" href={home} aria-label={t.nav.home}>L&thinsp;&amp;&thinsp;D</a>
+    <LangSwitch current={t.lang} label={t.nav.languages} />
+  </div>
+
+  <Grass class="hero__grass" />
+
+  <div class="hero__stage">
+    <article class="invite" data-hero-card>
+      <div class="invite__kids">
+        <img class="kid kid--l" src={`${base}img/us/laurin-kid.webp`} width="495" height="615" alt={t.hero.laurinAlt} />
+        <img class="kid kid--r" src={`${base}img/us/diana-kid.webp`} width="461" height="615" alt={t.hero.dianaAlt} />
+      </div>
+      <p class="invite__kicker">{t.hero.kicker}</p>
+      <h1 class="invite__names">
+        <span class="invite__word">{first}</span>
+        <span class="invite__amp">&amp;</span>
+        <span class="invite__word">{second}</span>
+      </h1>
+      <p class="invite__surname"><span>{t.hero.surname}</span></p>
+      <p class="invite__date"><time datetime="2027-07-10">{t.hero.date}</time></p>
+      <p class="invite__place">{t.hero.place}</p>
+      <a class="btn invite__cta" href="#antworten">{t.hero.cta}</a>
+      <p
+        class="invite__count"
+        data-countdown
+        data-date={WEDDING}
+        data-before={t.hero.countdown.before}
+        data-forms={JSON.stringify(t.hero.countdown.forms)}
+        data-today={t.hero.countdown.today}
+        data-past={t.hero.countdown.past}
+      >
+        {t.hero.countdown.before} <b data-count>{daysLeft}</b> <span data-unit>{unit}</span>
+      </p>
+    </article>
+  </div>
+
+  <nav class="tabs" aria-label={t.nav.home}>
+    {t.hero.tabs.map((tab, i) => (
+      <a class={`tab tab--${i + 1}`} href={`#${tab.id}`}>{tab.label}</a>
+    ))}
+  </nav>
+</header>

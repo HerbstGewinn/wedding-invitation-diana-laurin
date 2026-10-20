@@ -1,0 +1,13 @@
+---
+import { meadow } from '../lib/shapes';
+interface Props { class?: string; seed?: number }
+const { class: cls = '', seed = 7 } = Astro.props;
+const layers = meadow(seed);
+---
+<svg class={`grass ${cls}`} viewBox="0 0 1440 260" preserveAspectRatio="xMidYMax slice" aria-hidden="true" focusable="false">
+  {layers.map((blades, i) => (
+    <g class={`grass__layer grass__layer--${i + 1}`}>
+      {blades.map((b) => <path d={b.d} fill={b.fill} />)}
+    </g>
+  ))}
+</svg>

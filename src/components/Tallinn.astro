@@ -1,0 +1,45 @@
+---
+import type { Dict } from '../i18n/de';
+interface Props { t: Dict }
+const { t } = Astro.props;
+const base = import.meta.env.BASE_URL;
+const tl = t.tallinn;
+---
+
+<section class="tallinn" id="tallinn" aria-labelledby="tallinn-h">
+  <figure class="tallinn__media shutter" data-reveal>
+    <img
+      src={`${base}img/estonia/tallinna-vanalinn-paikesetousu-ajal.webp`}
+      width="1920"
+      height="1282"
+      alt={tl.photoAlt}
+      loading="lazy"
+      decoding="async"
+    />
+  </figure>
+  <div class="tallinn__col">
+    <h2 class="tallinn__word" id="tallinn-h" data-reveal><span>{tl.word}</span></h2>
+    <p class="script-h tallinn__sub" data-reveal style="--d: 90ms">{tl.heading}</p>
+    <div class="bars">
+      {tl.bars.map((b, i) => (
+        <details class="bar" open={i === 0} data-reveal style={`--d: ${i * 50}ms`}>
+          <summary><span>{b.label}</span><i class="bar__plus" aria-hidden="true"></i></summary>
+          <div class="bar__panel">
+            {b.lines.map((l) => <p>{l}</p>)}
+          </div>
+        </details>
+      ))}
+    </div>
+    <h3 class="tallinn__practical" data-reveal>{tl.practicalHeading}</h3>
+    <div class="bars">
+      {tl.practical.map((b, i) => (
+        <details class="bar" data-reveal style={`--d: ${i * 50}ms`}>
+          <summary><span>{b.label}</span><i class="bar__plus" aria-hidden="true"></i></summary>
+          <div class="bar__panel">
+            {b.lines.map((l) => <p>{l}</p>)}
+          </div>
+        </details>
+      ))}
+    </div>
+  </div>
+</section>

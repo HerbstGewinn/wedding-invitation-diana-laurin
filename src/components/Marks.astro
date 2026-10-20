@@ -1,0 +1,22 @@
+---
+// Two small drawn marks: an autumn leaf for Herbst, a bunch of grapes for Vinogradova.
+interface Props { kind: 'leaf' | 'grapes'; class?: string }
+const { kind, class: cls = '' } = Astro.props;
+const grapes = [
+  [24, 20], [36, 20], [48, 20], [30, 31], [42, 31], [54, 30], [36, 42], [48, 42], [42, 53], [30, 52], [40, 63],
+];
+---
+{kind === 'leaf' ? (
+  <svg class={`mark ${cls}`} viewBox="0 0 72 72" aria-hidden="true">
+    <path
+      fill="currentColor"
+      d="M36 6c3 6 6 8 12 8-1 5 1 9 6 12-4 3-5 6-3 11 5 0 8 2 11 6-6 2-9 5-9 10-5-2-9-1-12 3-1-4-3-6-5-7v15h-2V49c-2 1-4 3-5 7-3-4-7-5-12-3 0-5-3-8-9-10 3-4 6-6 11-6 2-5 1-8-3-11 5-3 7-7 6-12 6 0 9-2 12-8z"
+    />
+  </svg>
+) : (
+  <svg class={`mark ${cls}`} viewBox="0 0 72 72" aria-hidden="true">
+    <path fill="currentColor" opacity="0.75" d="M40 14c6-9 18-10 24-4-6 1-10 5-12 10-4-3-8-5-12-6z" />
+    <path fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" d="M40 15c-1-5 0-9 3-12" />
+    {grapes.map(([x, y]) => <circle cx={x} cy={y} r="6.4" fill="currentColor" />)}
+  </svg>
+)}

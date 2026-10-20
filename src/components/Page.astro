@@ -1,0 +1,36 @@
+---
+import type { Dict } from '../i18n/de';
+import Base from '../layouts/Base.astro';
+import Hero from './Hero.astro';
+import Story from './Story.astro';
+import Location from './Location.astro';
+import Day from './Day.astro';
+import Pack from './Pack.astro';
+import Faq from './Faq.astro';
+import Estonia from './Estonia.astro';
+import Tallinn from './Tallinn.astro';
+import Rsvp from './Rsvp.astro';
+import Footer from './Footer.astro';
+
+interface Props { t: Dict }
+const { t } = Astro.props;
+---
+
+<Base t={t}>
+  <Hero t={t} />
+  <main>
+    <Story t={t} />
+    <Location t={t} />
+    <Day t={t} />
+    <Pack t={t} />
+    <Faq t={t} />
+    <Estonia t={t} />
+    <Tallinn t={t} />
+    <Rsvp t={t} />
+  </main>
+  <Footer t={t} />
+</Base>
+
+<script>
+  import '../scripts/main';
+</script>

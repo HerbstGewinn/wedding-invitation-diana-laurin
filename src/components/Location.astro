@@ -1,0 +1,39 @@
+---
+import type { Dict } from '../i18n/de';
+interface Props { t: Dict }
+const { t } = Astro.props;
+const base = import.meta.env.BASE_URL;
+const l = t.location;
+const maps = 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent('Lainela Puhkeküla, Lainela tn 1, Käsmu, Estonia');
+---
+
+<section class="location" id="location" aria-labelledby="location-h">
+  <div class="location__media">
+    <img
+      class="location__photo"
+      data-drift
+      src={`${base}img/estonia/kasmu-sadam-2015.webp`}
+      width="2000"
+      height="1333"
+      alt={l.photoAlt}
+      loading="lazy"
+      decoding="async"
+    />
+  </div>
+  <div class="location__card" data-reveal>
+    <h2 class="location__title" id="location-h">{l.heading}</h2>
+    <p class="location__sub">{l.sub}</p>
+    <address class="location__address">
+      {l.address.map((line) => <span>{line}</span>)}
+    </address>
+    <p class="location__rooms">{l.rooms}</p>
+    <dl class="location__rows">
+      {l.rows.map((r) => (
+        <div><dt>{r.label}</dt><dd>{r.value}</dd></div>
+      ))}
+    </dl>
+    <a class="btn btn--bar" href="#antworten">{l.confirm}</a>
+    <p class="location__food"><strong>{l.foodLabel}:</strong> {l.food}</p>
+    <a class="btn btn--ghost btn--bar" href={maps} target="_blank" rel="noopener">{l.cta}</a>
+  </div>
+</section>

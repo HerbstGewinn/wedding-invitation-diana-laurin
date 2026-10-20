@@ -1,0 +1,30 @@
+---
+import type { Dict } from '../i18n/de';
+import LangSwitch from './LangSwitch.astro';
+import credits from '../data/credits.json';
+
+interface Props { t: Dict }
+const { t } = Astro.props;
+const base = import.meta.env.BASE_URL;
+const list = Object.values(credits as Record<string, { title: string; creator: string; license: string; licenseUrl: string; page: string }>);
+---
+
+<footer class="footer">
+  <p class="footer__names" aria-hidden="true" data-write>{t.hero.names}</p>
+
+  <div class="footer__top">
+    <p class="footer__date">{t.footer.date}</p>
+    <LangSwitch current={t.lang} label={t.nav.languages} tone="dark" />
+  </div>
+
+  <div class="footer__credits">
+    <p>
+      <span>{t.footer.creditsLabel} {t.footer.creditsVia}:</span>
+      {list.map((c, i) => (
+        <span>
+          <a href={c.page} target="_blank" rel="noopener">{c.title}</a> · {c.creator.replace(/\s*\(.*$/, '')} · <a href={c.licenseUrl} target="_blank" rel="noopener">{c.license}</a>{i < list.length - 1 ? '; ' : '.'}
+        </span>
+      ))}
+    </p>
+  </div>
+</footer>

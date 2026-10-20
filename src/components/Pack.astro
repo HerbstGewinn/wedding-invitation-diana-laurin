@@ -1,0 +1,49 @@
+---
+import type { Dict } from '../i18n/de';
+interface Props { t: Dict }
+const { t } = Astro.props;
+const base = import.meta.env.BASE_URL;
+const p = t.pack;
+// The ten dress-code colours from the invitation card.
+const swatches = ['#edeae1', '#cdbca1', '#868d75', '#9eab96', '#3f5643', '#b3c4cf', '#9f6b4f', '#978978', '#47453f', '#5d432f'];
+---
+
+<section class="pack" id="einpacken" aria-labelledby="pack-h">
+  <img
+    class="pack__photo"
+    data-drift
+    src={`${base}img/estonia/iconic-boulders-near-kasmu-captain-village.webp`}
+    width="2000"
+    height="1332"
+    alt={p.photoAlt}
+    loading="lazy"
+    decoding="async"
+  />
+  <div class="pack__text">
+    <h2 class="script-h pack__h" id="pack-h" data-reveal>{p.heading}</h2>
+    <h3 class="pack__dress-h" data-reveal style="--d: 80ms">{p.dressTitle}</h3>
+    <ul class="swatches" aria-hidden="true" data-reveal style="--d: 140ms">
+      {swatches.map((c, i) => <li style={`background:${c}; --i:${i}`}></li>)}
+    </ul>
+    <p class="pack__lead" data-reveal style="--d: 200ms">{p.dress}</p>
+  </div>
+  <ul class="pack__slips">
+    <li class="pslip pslip--wide" style="--h: 40svh; --r: -1.2deg; --d: 0ms" data-reveal>
+      <b class="pslip__title">{p.shoesTitle}</b>
+      <span class="pslip__rule" aria-hidden="true">· · · · · · · · · · · · · · · · · · · ·</span>
+      <span class="pslip__body">{p.shoes}</span>
+    </li>
+    <li class="pslip" style="--h: 44svh; --r: 0deg; --d: 90ms" data-reveal>
+      <b class="pslip__title">{p.stayTitle}</b>
+      <span class="pslip__rule" aria-hidden="true">· · · · · · · · · · · · · · · · · · · ·</span>
+      <ul class="pslip__list">
+        {p.stayItems.map((it) => <li>{it}</li>)}
+      </ul>
+    </li>
+    <li class="pslip" style="--h: 32svh; --r: 1.5deg; --d: 180ms" data-reveal>
+      <b class="pslip__title">{p.gearTitle}</b>
+      <span class="pslip__rule" aria-hidden="true">· · · · · · · · · · · · · · · · · · · ·</span>
+      <span class="pslip__body">{p.gear}</span>
+    </li>
+  </ul>
+</section>
