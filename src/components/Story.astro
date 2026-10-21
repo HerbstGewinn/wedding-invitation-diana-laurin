@@ -8,16 +8,16 @@ const [a, b] = t.story.tiles;
 
 <section class="story" id="geschichte" aria-labelledby="story-h">
   <h2 class="sr-only" id="story-h">{t.story.label}</h2>
-  <figure class="print print--a" data-reveal style="--r: -2deg">
+  <figure class="print print--a" data-reveal>
     <img src={`${base}img/${a.img}`} width={a.w} height={a.h} alt={a.alt} loading="lazy" decoding="async" />
-    <figcaption class="print__strip">
+    <figcaption>
       <h3 class="print__title">{a.title}</h3>
       <p class="print__text">{a.text}</p>
     </figcaption>
   </figure>
-  <figure class="print print--b" data-reveal style="--d: 140ms; --r: 2.4deg">
+  <figure class="print print--b" data-reveal style="--d: 140ms">
     <img src={`${base}img/${b.img}`} width={b.w} height={b.h} alt={b.alt} loading="lazy" decoding="async" />
-    <figcaption class="print__strip">
+    <figcaption>
       <h3 class="print__title">{b.title}</h3>
       <p class="print__text">{b.text}</p>
     </figcaption>

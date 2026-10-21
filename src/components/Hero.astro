@@ -19,9 +19,9 @@ const unit = t.hero.countdown.forms[form] ?? t.hero.countdown.forms.other;
   <div class="hero__media" data-hero-media>
     <img
       class="hero__photo"
-      src={`${base}img/estonia/beautiful-kasmu-strand-in-estonia.webp`}
-      width="2000"
-      height="1125"
+      src={`${base}img/estonia/hero-meadow.webp`}
+      width="2400"
+      height="1600"
       alt={t.hero.photoAlt}
       fetchpriority="high"
       decoding="async"
@@ -31,17 +31,14 @@ const unit = t.hero.countdown.forms[form] ?? t.hero.countdown.forms.other;
 
   <div class="topbar">
     <a class="wordmark" href={home} aria-label={t.nav.home}>L&thinsp;&amp;&thinsp;D</a>
-    <LangSwitch current={t.lang} label={t.nav.languages} />
+    <LangSwitch current={t.lang} label={t.nav.languages} tone="dark" />
   </div>
 
   <Grass class="hero__grass" />
 
   <div class="hero__stage">
-    <article class="invite" data-hero-card>
-      <div class="invite__kids">
-        <img class="kid kid--l" src={`${base}img/us/laurin-kid.webp`} width="495" height="615" alt={t.hero.laurinAlt} />
-        <img class="kid kid--r" src={`${base}img/us/diana-kid.webp`} width="461" height="615" alt={t.hero.dianaAlt} />
-      </div>
+    <img class="kid kid--l" src={`${base}img/us/laurin-kid.webp`} width="1080" height="1342" alt={t.hero.laurinAlt} />
+    <div class="hero__center" data-hero-card>
       <p class="invite__kicker">{t.hero.kicker}</p>
       <h1 class="invite__names">
         <span class="invite__word">{first}</span>
@@ -63,7 +60,8 @@ const unit = t.hero.countdown.forms[form] ?? t.hero.countdown.forms.other;
       >
         {t.hero.countdown.before} <b data-count>{daysLeft}</b> <span data-unit>{unit}</span>
       </p>
-    </article>
+    </div>
+    <img class="kid kid--r" src={`${base}img/us/diana-kid.webp`} width="1500" height="2000" alt={t.hero.dianaAlt} />
   </div>
 
   <nav class="tabs" aria-label={t.nav.home}>

@@ -1,6 +1,5 @@
 ---
 import type { Dict } from '../i18n/de';
-import Marks from './Marks.astro';
 import { FORM_ACTION, FORM_VIEW, ENTRY, VALUE, STAY_REQUIRED_IN_FORM } from '../data/rsvp';
 
 interface Props { t: Dict }
@@ -19,7 +18,7 @@ const people = [
     <ul class="contacts">
       {people.map((p, i) => (
         <li class="contact" data-reveal style={`--d: ${140 + i * 80}ms`}>
-          <Marks kind={p.mark} class="contact__mark" />
+          <img class="contact__mark" src={`${import.meta.env.BASE_URL}img/art/grapes.png`} width="63" height="49" alt="" loading="lazy" />
           <span class="contact__name">{p.name}</span>
           <a href={`tel:${p.tel.replace(/\s/g, '')}`}>{p.tel}</a>
           <a href={`mailto:${p.mail}`}>{p.mail}</a>
@@ -27,7 +26,7 @@ const people = [
       ))}
     </ul>
     <figure class="rsvp__kids shutter" data-reveal>
-      <img src={`${import.meta.env.BASE_URL}img/us/curly-kids.webp`} width="492" height="615" alt={t.footer.kidsAlt} loading="lazy" decoding="async" />
+      <img src={`${import.meta.env.BASE_URL}img/us/curly-kids.webp`} width="1122" height="1402" alt={t.footer.kidsAlt} loading="lazy" decoding="async" />
     </figure>
   </div>
 

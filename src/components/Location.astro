@@ -4,36 +4,41 @@ interface Props { t: Dict }
 const { t } = Astro.props;
 const base = import.meta.env.BASE_URL;
 const l = t.location;
+const d = t.day;
 const maps = 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent('Lainela Puhkeküla, Lainela tn 1, Käsmu, Estonia');
 ---
 
 <section class="location" id="location" aria-labelledby="location-h">
-  <div class="location__media">
-    <img
-      class="location__photo"
-      data-drift
-      src={`${base}img/estonia/kasmu-sadam-2015.webp`}
-      width="2000"
-      height="1333"
-      alt={l.photoAlt}
-      loading="lazy"
-      decoding="async"
-    />
+  <div class="location__lead" data-reveal>
+    <h2 class="script-h location__title" id="location-h">{l.heading}</h2>
+    <img class="art art--house" src={`${base}img/art/house.png`} width="271" height="245" alt="" loading="lazy" decoding="async" />
   </div>
-  <div class="location__card" data-reveal>
-    <h2 class="location__title" id="location-h">{l.heading}</h2>
-    <p class="location__sub">{l.sub}</p>
-    <address class="location__address">
-      {l.address.map((line) => <span>{line}</span>)}
-    </address>
-    <p class="location__rooms">{l.rooms}</p>
-    <dl class="location__rows">
-      {l.rows.map((r) => (
-        <div><dt>{r.label}</dt><dd>{r.value}</dd></div>
-      ))}
-    </dl>
-    <a class="btn btn--bar" href="#antworten">{l.confirm}</a>
-    <p class="location__food"><strong>{l.foodLabel}:</strong> {l.food}</p>
-    <a class="btn btn--ghost btn--bar" href={maps} target="_blank" rel="noopener">{l.cta}</a>
+  <div class="location__body" data-reveal style="--d: 90ms">
+    <h3 class="location__name"><a href={maps} target="_blank" rel="noopener">{l.sub}</a></h3>
+    <div class="location__split">
+      <div>
+        <p>{l.rooms}</p>
+        {l.rows.map((r) => <p>{r.label}: {r.value}</p>)}
+      </div>
+      <a class="btn" href="#antworten">{l.confirm}</a>
+    </div>
+    <p class="location__food">{l.foodLabel}: {l.food}</p>
+  </div>
+
+  <div class="location__days">
+    <div class="dayblock" data-reveal>
+      <h3 class="dayblock__h">{d.day1Heading}</h3>
+      <div class="dayblock__row">
+        <img class="art art--dance" src={`${base}img/art/dance.png`} width="166" height="173" alt="" loading="lazy" decoding="async" />
+        <p>{d.day1}</p>
+      </div>
+    </div>
+    <div class="dayblock" data-reveal style="--d: 120ms">
+      <h3 class="dayblock__h">{d.day2Heading}</h3>
+      <div class="dayblock__row">
+        <p>{d.day2}</p>
+        <img class="art art--couple" src={`${base}img/art/couple-pink.png`} width="148" height="135" alt="" loading="lazy" decoding="async" />
+      </div>
+    </div>
   </div>
 </section>

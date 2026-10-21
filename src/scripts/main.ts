@@ -159,10 +159,9 @@ function fitWord() {
   if (!word || !span) return;
   const fit = () => {
     word.style.fontSize = '';
-    const box = word.clientWidth;
     const size = parseFloat(getComputedStyle(word).fontSize);
     const w = span.getBoundingClientRect().width;
-    if (w > 0) word.style.fontSize = `${(size * box) / w}px`;
+    if (w > 0) word.style.fontSize = `${(size * word.clientWidth) / w}px`;
   };
   document.fonts?.ready.then(fit);
   addEventListener('resize', fit);
@@ -177,11 +176,16 @@ function nowOnSlip() {
   const tallinn = new Date(now.getTime() + (now.getTimezoneOffset() + 180) * 60000);
   if (tallinn.getFullYear() !== 2027 || tallinn.getMonth() !== 6 || tallinn.getDate() !== 10) return;
   const minutes = tallinn.getHours() * 60 + tallinn.getMinutes();
-  const rows = Array.from(document.querySelectorAll<HTMLElement>('.slip__row[data-time]'));
+  const rows = Array.from(document.querySelectorAll<HTMLElement>('.tl[data-time]'));
   let active: HTMLElement | null = null;
   for (const row of rows) {
-    const [h, m] = row.dataset.time!.split(/[:.]/).map(Number);
-    if (h * 60 + m <= minutes) active = row;
+    const t = row.dataset.time!.match(/(\d+)[:.](\d+)\s*(AM|PM)?/i);
+    if (!t) continue;
+    let h = +t[1] % (t[3] ? 12 : 24);
+    if (t[3]?.toUpperCase() === 'PM') h += 12;
+    let mins = h * 60 + +t[2];
+    if (mins < 6 * 60) mins += 24 * 60; // after-midnight steps belong to the same evening
+    if (mins <= minutes) active = row;
   }
   active?.classList.add('is-now');
 }

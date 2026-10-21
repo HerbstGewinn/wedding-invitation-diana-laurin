@@ -17,7 +17,7 @@ const et: Dict = {
     cta: 'Kinnita ja vasta',
     laurinAlt: 'Laurin väikese poisina, heledate lokkidega',
     dianaAlt: 'Diana väikese tüdrukuna, lokkide ja lillega',
-    photoAlt: 'Läänemere rand Käsmu lähedal: rohi ja rändrahnud vees',
+    photoAlt: 'Kõrge roheline suvine heinamaa',
     countdown: {
       before: 'Veel',
       forms: { one: 'päev', other: 'päeva' },
@@ -38,16 +38,16 @@ const et: Dict = {
     tiles: [
       {
         img: 'us/hamburg.webp',
-        w: 820,
-        h: 615,
+        w: 1640,
+        h: 1230,
         alt: 'Laurin ja Diana naeravad vaateplatvormil Hamburgi sadama kohal',
         title: 'Esimene kohting',
         text: 'Väike pilguheit meie esimesele päris kohtingule – kui Laurin näitas mulle Reeperbahni.',
       },
       {
         img: 'us/tromso.webp',
-        w: 461,
-        h: 615,
+        w: 1280,
+        h: 1600,
         alt: 'Laurin ja Diana lumes fjordi kohal Tromsø lähedal, Diana näitab sõrmust',
         title: 'Ametlikult meie',
         text: 'Üllatusreis kaugele põhja, Tromsøsse – kus astusime suure sammu ühise pere poole.',
@@ -58,7 +58,6 @@ const et: Dict = {
   location: {
     heading: 'Asukoht',
     sub: 'Lainela puhkeküla',
-    address: ['Lainela tn 1, Käsmu küla', 'Lääne-Virumaa, Eesti'],
     rooms: 'Oleme toad juba ette ära jaganud, et sisseregistreerimine läheks kiiresti ja lihtsalt.',
     rows: [
       { label: 'Sisseregistreerimine', value: '14.00' },
@@ -67,8 +66,6 @@ const et: Dict = {
     confirm: 'Kinnita 1 või 2 päeva',
     foodLabel: 'Söök',
     food: 'Pulmapäeva söök ja 11. kuupäeva hommikusöök on meie poolt. Pärast seda palume teil ise toidu eest hoolitseda. Lähedal on grillimiskoht ja pood. Restoran on 11. kuupäeval avatud, kuid esmaspäeval, 12. kuupäeval, suletud.',
-    cta: 'Ava teekond',
-    photoAlt: 'Käsmu linnulennult: sadam, majad rohelises ja kivid meres',
   },
 
   day: {
@@ -80,7 +77,6 @@ const et: Dict = {
     day2Heading: '2. päev',
     day2:
       'Järgmine päev: saun, tennis ja padel on valmis – ja otse mere ääres saame ka ujumas käia. Lihtsalt puhkame, mängime ja naudime pulmajärgset päeva täiesti rahulikult.',
-    slip1Title: 'Laupäev, 10.07.',
     items: [
       { time: '14.00', what: 'Sisseregistreerimine', note: 'Oleme toad kõigile juba ette ära jaotanud. Tulge lihtsalt kohale ja võtke võtmed sissepääsu juurest.' },
       { time: '16.00', what: 'Laulatus', note: 'Palun olge kohal 15–20 minutit enne algust!' },
@@ -92,13 +88,6 @@ const et: Dict = {
       { time: '21.30', what: 'Pidu', note: 'Nüüd läheb lõbusaks – nautige!' },
     ],
     final: { what: 'Head ööd!', time: '03.00', note: 'Magage hästi ja olge valmis järgmise hommiku hommikusöögiks.' },
-    slip2Title: 'Pühapäev, 11.07.',
-    items2: [
-      { what: 'Hommikusöök', value: 'meie poolt' },
-      { what: 'Saun, tennis ja padel', value: 'on valmis' },
-      { what: 'Ujumine', value: 'otse mere ääres' },
-    ],
-    final2: { what: 'Väljaregistreerimine', time: '11.00' },
   },
 
   pack: {
@@ -107,11 +96,11 @@ const et: Dict = {
     dress: 'Meil oleks hea meel, kui valiksite looduse värvid – erinevad rohelised toonid, pruun, sinine, beež ja muud looduslikud värvid.',
     shoesTitle: 'Jalanõud',
     shoes: 'Kuna peame pidu keset loodust, soovitame eriti daamidel valida sobivad jalanõud – peenikeste või kõrgete kontsadega võib olla veidi keeruline. Aga loomulikult: kui soovite siiski kontsakingadega tulla, siis julgelt! 👠',
-    stayTitle: 'Neile, kes jäävad kaheks päevaks',
-    stayItems: ['Ujumisriided', 'Rätik', 'Spordiriided', 'Mugavad jalanõud', 'Midagi õhtuks'],
+    stayTitle: '🧳 Neile, kes jäävad kaheks päevaks',
+    stayItems: ['🩱 Ujumisriided', '🏖️ Rätik', '🎾 Spordiriided', '👟 Mugavad jalanõud', '🧥 Midagi õhtuks'],
     gearTitle: 'Kohapeal',
     gear: 'Padeli- ja tennisevarustus on kohapeal olemas.',
-    photoAlt: 'Suured rändrahnud vaikses vees Käsmu lähedal õhtupäikeses',
+    photoAlt: 'Diana ja Laurin embavad puittrepil mere ääres päikeseloojangul',
   },
 
   faq: {
@@ -147,31 +136,31 @@ const et: Dict = {
     heading: 'Mida Eestis näha',
     intro:
       'Eestil on palju pakkuda, eriti suvel – kui päike peaaegu magama ei lähegi ja loodetavasti on ka päriselt soe. ☀️',
-    groupA: 'Tallinn',
-    groupB: 'Veidi kaugemal',
+    groupA: '🌆 Tallinn',
+    groupB: '🌿 Veidi kaugemal',
     mapLabel: 'Ava kaardil',
     a: [
-      { name: 'Old Town', q: 'Tallinn Old Town', img: 'town-hall-square-tallinn-july-2022', text: 'Keskaegsed tänavad, peidetud hoovid, vanad linnamüürid ja hubased kohvikud. Ja vaadake hoolega – võib-olla märkate üsna palju sarnasusi Lübeckiga.' },
-      { name: 'Telliskivi Creative City', q: 'Telliskivi Creative City', img: 'telliskivi-creative-city', text: 'Tänavakunst, väikesed poed, lahedad baarid, restoranid ja kergelt alternatiivne õhkkond. Ideaalne, et ilma kindla plaanita ringi jalutada.' },
-      { name: 'Pirita Beach', q: 'Pirita Beach Tallinn', img: 'pirita-beach-7759546582', text: 'Jah, Eestis on randu! Võtke jäätist, jalutage mööda Läänemere randa või lihtsalt nautige päikest ja kujutage ette, et olete Vahemere ääres. 🏖️' },
-      { name: 'Kadriorg Palace & Park', q: 'Kadriorg Palace', img: 'palacio-de-kadriorg-tallinn-estonia-2012-08', text: 'Kaunis loss, toredad aiad ja ideaalne koht rahulikuks suvejalutuskäiguks.' },
-      { name: 'Põhjala Brewery & Tap Room', q: 'Põhjala Brewery Tap Room', img: 'pohjala-brewery-tap-room-6-marke-saaremets', text: 'Õllesõpradele: Eesti käsitööõlu ja 24 õlut kraanist. When in Estonia … 🍻' },
-      { name: 'Sauna & Sea', q: 'sea sauna Tallinn', img: 'leil-in-an-estonian-smoke-sauna', text: 'Proovige õiget Eesti sauna ja hüpake siis otse Läänemerre. Tallinnas on isegi saunu otse vee ääres. 🔥🌊' },
-      { name: 'Olde Hansa', q: 'Olde Hansa Tallinn', img: 'olde-hansa-2006-01', text: 'Tahaksite rännata keskaega ilma Tallinnast lahkumata? Siis olete õiges kohas. Keskaegne toit, küünlad, kostüümid ja väga dramaatiline õhkkond. Ja ärge lahkuge enne, kui olete proovinud nende röstitud mandleid! 🐻 Kui tahate proovida midagi tõeliselt ebatavalist, leiate siit isegi karuliha.' },
-      { name: 'Kali', q: '', img: '', text: 'Väga eestilik jook – kuskil leiva, õlle ja limonaadi vahepeal, aga ilma alkoholita. Kõlab veidralt. Maitseb üllatavalt hästi. Kõige parem külmalt.' },
-      { name: 'The Supermarket Ice Cream Mission', q: '', img: '', text: 'Minge ükskõik millisesse supermarketisse, avage sügavkülmik ja valmistuge tähtsaks otsuseks. Eestis võetakse jäätist väga tõsiselt. Proovige mitut erinevat – soovitavalt rohkem kui korra. 😌' },
+      { e: '🏰', name: 'Old Town', q: 'Tallinn Old Town', img: 'oldtown', text: 'Keskaegsed tänavad, peidetud hoovid, vanad linnamüürid ja hubased kohvikud. Ja vaadake hoolega – võib-olla märkate üsna palju sarnasusi Lübeckiga.' },
+      { e: '🎨', name: 'Telliskivi Creative City', q: 'Telliskivi Creative City', img: 'telliskivi', text: 'Tänavakunst, väikesed poed, lahedad baarid, restoranid ja kergelt alternatiivne õhkkond. Ideaalne, et ilma kindla plaanita ringi jalutada.' },
+      { e: '🌊', name: 'Pirita Beach', q: 'Pirita Beach Tallinn', img: 'pirita', text: 'Jah, Eestis on randu! Võtke jäätist, jalutage mööda Läänemere randa või lihtsalt nautige päikest ja kujutage ette, et olete Vahemere ääres. 🏖️' },
+      { e: '🌳', name: 'Kadriorg Palace & Park', q: 'Kadriorg Palace', img: 'kadriorg', text: 'Kaunis loss, toredad aiad ja ideaalne koht rahulikuks suvejalutuskäiguks.' },
+      { e: '🍺', name: 'Põhjala Brewery & Tap Room', q: 'Põhjala Brewery Tap Room', img: '', text: 'Õllesõpradele: Eesti käsitööõlu ja 24 õlut kraanist. When in Estonia … 🍻' },
+      { e: '🧖', name: 'Sauna & Sea', q: 'sea sauna Tallinn', img: 'sauna', text: 'Proovige õiget Eesti sauna ja hüpake siis otse Läänemerre. Tallinnas on isegi saunu otse vee ääres. 🔥🌊' },
+      { e: '🍽️', name: 'Olde Hansa', q: 'Olde Hansa Tallinn', img: 'oldehansa', text: 'Tahaksite rännata keskaega ilma Tallinnast lahkumata? Siis olete õiges kohas. Keskaegne toit, küünlad, kostüümid ja väga dramaatiline õhkkond. Ja ärge lahkuge enne, kui olete proovinud nende röstitud mandleid! 🐻 Kui tahate proovida midagi tõeliselt ebatavalist, leiate siit isegi karuliha.' },
+      { e: '🥤', name: 'Kali', q: '', img: '', text: 'Väga eestilik jook – kuskil leiva, õlle ja limonaadi vahepeal, aga ilma alkoholita. Kõlab veidralt. Maitseb üllatavalt hästi. Kõige parem külmalt.' },
+      { e: '🍦', name: 'The Supermarket Ice Cream Mission', q: '', img: 'icecream', text: 'Minge ükskõik millisesse supermarketisse, avage sügavkülmik ja valmistuge tähtsaks otsuseks. Eestis võetakse jäätist väga tõsiselt. Proovige mitut erinevat – soovitavalt rohkem kui korra. 😌' },
     ],
     b: [
-      { name: 'Rummu Prison', q: 'Rummu quarry', img: 'rummu-quarry', text: 'Mahajäetud nõukogude vangla, mille on osaliselt endasse neelanud erk türkiissinine järv. Võite ujuda, SUP-lauaga sõita või avastada varemete ümber olevat veidrat maastikku.' },
-      { name: 'Bog Swimming at Soomaa', q: 'Soomaa National Park', img: 'riisa-raba-varahommikul', text: 'Üks kõige eestilikumaid elamusi: rabas ujumine. Päikesetõusul veel parem. Jah, päriselt. 🫧' },
-      { name: 'Haapsalu', q: 'Haapsalu Castle', img: 'haapsalu-linnus-2022-aasta-suvel', text: 'Väike mereäärne linn, mille keskel on linnus. Jalutage promenaadil, avastage väikesi tänavaid ja peatuge, et midagi kohalikku süüa.' },
+      { e: '🏚️', name: 'Rummu Prison', q: 'Rummu quarry', img: 'rummu', text: 'Mahajäetud nõukogude vangla, mille on osaliselt endasse neelanud erk türkiissinine järv. Võite ujuda, SUP-lauaga sõita või avastada varemete ümber olevat veidrat maastikku.' },
+      { e: '🌿', name: 'Bog Swimming at Soomaa', q: 'Soomaa National Park', img: 'soomaa', text: 'Üks kõige eestilikumaid elamusi: rabas ujumine. Päikesetõusul veel parem. Jah, päriselt. 🫧' },
+      { e: '🏰', name: 'Haapsalu', q: 'Haapsalu Castle', img: 'haapsalu', text: 'Väike mereäärne linn, mille keskel on linnus. Jalutage promenaadil, avastage väikesi tänavaid ja peatuge, et midagi kohalikku süüa.' },
     ],
   },
 
   tallinn: {
     word: 'Tallinn',
     heading: 'Mis, kus ja kuidas?',
-    photoAlt: 'Tallinna vanalinn kirikutornidega hommikuudus',
+    photoAlt: 'Tallinna illustreeritud kaart',
     bars: [
       { label: 'Kus Tallinnas ööbida', lines: ['Kõige parem Kesklinna või Kadrioru lähedal. See on otse linnas ja Tallinnas saab väga hästi jalgsi liikuda, nii et jõuate tegelikult igale poole lihtsalt.'] },
       { label: 'Kus hommikust süüa', lines: ['LouLou, NOP (vegan)'] },
@@ -192,7 +181,7 @@ const et: Dict = {
 
   rsvp: {
     heading: 'Kinnita ja vasta',
-    line: 'Need lokkis lapsed on juba väga elevil!',
+    line: 'Need kaks last on alati sellest päevast unistanud – ja teie olete osa sellest unenäost.',
     contactHeading: 'Kontakt',
     attend: {
       label: 'Kas saad tulla?',
@@ -231,9 +220,9 @@ const et: Dict = {
 
   footer: {
     kidsAlt: 'Maalitud pilt: kaks lokkis last lillekimbu ja kassipojaga valgete liiliate vahel',
-    line: 'Need lokkis lapsed on juba väga elevil!',
+    line: 'Need kaks last on alati sellest päevast unistanud – ja teie olete osa sellest unenäost.',
     date: '10-07-2027 · Lainela puhkeküla, Eesti',
-    creditsLabel: 'Eesti fotod',
+    creditsLabel: 'Taustafoto',
     creditsVia: 'Wikimedia Commonsi kaudu',
   },
 };

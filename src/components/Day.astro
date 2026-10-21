@@ -1,61 +1,28 @@
 ---
 import type { Dict } from '../i18n/de';
-import { zigzagBottom } from '../lib/shapes';
 interface Props { t: Dict }
 const { t } = Astro.props;
+const base = import.meta.env.BASE_URL;
 const d = t.day;
-const edge = zigzagBottom(26, 11);
-const edge2 = zigzagBottom(18, 11);
+const icons = ['key', 'ring', 'glasses', 'camera', 'plate', 'music', 'cake', 'fireworks', 'bed'];
+const steps = [...d.items, { time: d.final.time, what: d.final.what, note: d.final.note }];
+// her timeline: check-in on the right of the line, then alternating
+const side = (i: number) => (i % 2 === 0 ? 'r' : 'l');
 ---
 
 <section class="day" id="tag" aria-labelledby="day-h">
-  <div class="day__text">
-    <h2 class="script-h day__h" id="day-h" data-reveal>{d.heading}</h2>
-    <p class="day__intro" data-reveal style="--d: 90ms">{d.intro}</p>
-    <div class="day__days">
-      <div data-reveal style="--d: 160ms">
-        <h3 class="day__h3">{d.day1Heading}</h3>
-        <p class="day__p">{d.day1}</p>
-      </div>
-      <div data-reveal style="--d: 240ms">
-        <h3 class="day__h3">{d.day2Heading}</h3>
-        <p class="day__p">{d.day2}</p>
-      </div>
-    </div>
-  </div>
+  <h2 class="script-h day__h" id="day-h" data-reveal>{d.heading}</h2>
+  <p class="day__intro" data-reveal style="--d: 90ms">{d.intro}</p>
 
-  <div class="day__slips">
-    <div class="slip slip--main" style={`clip-path: ${edge}`} data-print>
-      <h3 class="slip__title">{d.slip1Title}</h3>
-      <ol class="slip__list">
-        {d.items.map((it) => (
-          <li class="slip__row" data-time={it.time}>
-            <span class="slip__what">{it.what}<small>{it.note}</small></span>
-            <span class="slip__dots" aria-hidden="true"></span>
-            <span class="slip__time">{it.time}</span>
-          </li>
-        ))}
-      </ol>
-      <div class="slip__final">
-        <p><span>{d.final.what}</span><span>{d.final.time}</span></p>
-        <small>{d.final.note}</small>
-      </div>
-    </div>
-
-    <div class="slip slip--second" style={`clip-path: ${edge2}`} data-print>
-      <h3 class="slip__title">{d.slip2Title}</h3>
-      <ul class="slip__list">
-        {d.items2.map((it) => (
-          <li class="slip__row">
-            <span class="slip__what">{it.what}</span>
-            <span class="slip__dots" aria-hidden="true"></span>
-            <span class="slip__time">{it.value}</span>
-          </li>
-        ))}
-      </ul>
-      <div class="slip__final">
-        <p><span>{d.final2.what}</span><span>{d.final2.time}</span></p>
-      </div>
-    </div>
-  </div>
+  <ol class="timeline">
+    {steps.map((s, i) => (
+      <li class={`tl tl--${side(i)}`} data-time={s.time} data-reveal style={`--d: ${(i % 3) * 70}ms`}>
+        <p class="tl__note">{s.note}</p>
+        <div class="tl__head">
+          <img class="tl__icon" src={`${base}img/art/i-${icons[i]}.png`} alt="" loading="lazy" decoding="async" />
+          <p class="tl__text"><time class="tl__time">{s.time}</time><span class="tl__what">{s.what}</span></p>
+        </div>
+      </li>
+    ))}
+  </ol>
 </section>

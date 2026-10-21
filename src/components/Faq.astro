@@ -2,15 +2,11 @@
 import type { Dict } from '../i18n/de';
 interface Props { t: Dict }
 const { t } = Astro.props;
-const base = import.meta.env.BASE_URL;
 ---
 
 <section class="faq" id="faq" aria-labelledby="faq-h">
   <div class="faq__side">
     <h2 class="script-h faq__h" id="faq-h" data-reveal>{t.faq.heading}</h2>
-    <figure class="print faq__print" data-reveal style="--d: 120ms; --r: -2.5deg">
-      <img src={`${base}img/us/bali-sunset.webp`} width="461" height="615" alt={t.faq.photoAlt} loading="lazy" decoding="async" />
-    </figure>
   </div>
   <div class="faq__topics">
     {t.faq.topics.map((topic, i) => (
