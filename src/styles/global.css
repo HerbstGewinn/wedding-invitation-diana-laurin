@@ -419,6 +419,20 @@ h1, h2, h3 { margin: 0; font-weight: 600; }
 .tl--l .tl__note { grid-column: 1; grid-row: 1; }
 .tl--l .tl__head { grid-column: 2; grid-row: 1; flex-direction: row-reverse; text-align: right; }
 .tl.is-now { background: var(--lime); }
+/* The last mark ends the line, so it does not read as if another step follows. */
+.tl:last-child { position: relative; }
+.tl:last-child::after {
+  content: '';
+  position: absolute;
+  z-index: 0;
+  left: 50%;
+  top: 50%;
+  bottom: 0;
+  width: 8px;
+  translate: -50% 0;
+  background: var(--paper);
+}
+.tl:last-child .tl__head { z-index: 1; }
 
 /* ------------------------------------------------------------ packing */
 
@@ -736,6 +750,7 @@ h1, h2, h3 { margin: 0; font-weight: 600; }
   .tl__icon { position: absolute; left: 0; width: 64px; height: 48px; padding: 0 6px; background: var(--paper); }
   .tl { position: relative; }
   .tl__icon { top: 0; }
+  .tl:last-child::after { left: 29px; top: 48px; width: 8px; translate: none; }
 
   .pack__grid { grid-template-columns: minmax(0, 1fr); gap: 48px; }
   .pack__gear { flex-wrap: wrap; }

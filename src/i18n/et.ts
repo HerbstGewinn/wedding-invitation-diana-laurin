@@ -142,7 +142,6 @@ const et: Dict = {
       { e: "🎨", name: "Telliskivi Loomelinnak", q: "Telliskivi Creative City", img: "telliskivi", text: "Tänavakunst, väikesed poed, lahedad baarid, restoranid ja kergelt alternatiivne õhkkond. Ideaalne, et lihtsalt ringi jalutada ja end voolul kanda lasta – täiesti ilma plaanita." },
       { e: "🌳", name: "Kadrioru loss ja park", q: "Kadriorg Palace", img: "kadriorg", text: "Kaunis loss, imelised aiad ja ideaalne koht rahulikuks suvejalutuskäiguks." },
       { e: "🍺", name: "Põhjala pruulikoda & Tap Room", q: "Põhjala Brewery Tap Room", img: "pohjala", text: "Kõigile õllesõpradele: Eesti käsitööõlu ja 24 õlut kraanist. Kui juba Eestis olla …" },
-      { e: "🧖", name: "Saun ja meri – IGLUPARK", q: "Iglupark Tallinn", img: "sauna", text: "Proovige ehtsat Eesti sauna ja hüpake siis otse Läänemerre. Tallinnas on isegi saunu otse vee ääres!" },
       { e: "🍽️", name: "Olde Hansa", q: "Olde Hansa Tallinn", img: "oldehansa", text: "Tahate teha väikese ajarännaku keskaega ilma Tallinnast lahkumata? Siis olete täpselt õiges kohas! Keskaegsed toidud, küünlavalgus, kostüümid ja üsna dramaatiline õhkkond. Ja proovige kindlasti röstitud mandleid! 🐻 Kui tahate proovida midagi tõeliselt ebatavalist, leiate siit isegi karuliha." },
       { e: "🍦", name: "Jäätisemissioon supermarketis", q: "", img: "icecream", text: "Minge ükskõik millisesse supermarketisse, avage sügavkülmik ja tehke tähtis otsus. Eestis võetakse jäätist väga tõsiselt. Proovige erinevaid maitseid – soovitavalt rohkem kui korra." },
     ],
