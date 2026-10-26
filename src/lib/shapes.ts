@@ -49,9 +49,9 @@ export function meadow(seed = 7): Blade[][] {
   const r = rng(seed);
   const layers: Blade[][] = [];
   const palettes = [
-    ['#5f7f4c', '#6b8a55', '#7a965f'],
-    ['#46663a', '#3f5e35', '#55743f'],
-    ['#2f4a28', '#36532c', '#284022'],
+    ['#9eab96', '#a8b4a0', '#8d9b84'],
+    ['#868d75', '#7a8170', '#949b84'],
+    ['#3f5643', '#31473a', '#4d6752'],
   ];
   const counts = [70, 60, 46];
   const heights = [150, 200, 250];
