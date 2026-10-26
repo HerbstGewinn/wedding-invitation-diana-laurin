@@ -9,9 +9,9 @@ const swatches = ['#edeae1', '#cdbca1', '#868d75', '#9eab96', '#3f5643', '#b3c4c
 ---
 
 <section class="pack" id="einpacken" aria-labelledby="pack-h">
-  <h2 class="script-h pack__h" id="pack-h" data-reveal>{p.heading}</h2>
   <div class="pack__grid">
     <div class="pack__col" data-reveal>
+      <h2 class="script-h pack__h" id="pack-h">{p.heading}</h2>
       <h3 class="pack__sub">{p.dressTitle}</h3>
       <ul class="swatches" aria-hidden="true">
         {swatches.map((c) => <li style={`background:${c}`}></li>)}
@@ -19,15 +19,9 @@ const swatches = ['#edeae1', '#cdbca1', '#868d75', '#9eab96', '#3f5643', '#b3c4c
       <p>{p.dress}</p>
       <p>{p.shoes}</p>
     </div>
-    <div class="pack__col" data-reveal style="--d: 120ms">
-      <h3 class="pack__sub">{p.stayTitle}</h3>
-      <ul class="pack__list">
-        {p.stayItems.map((it) => <li>{it}</li>)}
-      </ul>
-      <div class="pack__gear">
-        <img class="art" src={`${base}img/art/rackets.png`} width="175" height="174" alt="" loading="lazy" decoding="async" />
-        <p>{p.gear}</p>
-      </div>
+    <div class="pack__col pack__heart" data-reveal style="--d: 120ms">
+      <h2 class="script-h pack__h">{p.heartTitle}</h2>
+      {p.heart.map((para) => <p>{para}</p>)}
     </div>
   </div>
 </section>

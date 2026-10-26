@@ -27,16 +27,8 @@ Change a sentence in one language and change it in the other two as well.
 
 ## RSVP
 
-The form on the site posts straight to the Google Form "Hochzeit Laurin & Diana"
-(`src/data/rsvp.ts`). Questions are shown in the visitor's language, but the site always sends the
-form's original German option values, so every answer lands in the same columns of one sheet.
-
-The Google Form marks "Wie lange bleibst du?" as required, so a decline also has to send a value for it
-(it sends the first option). To stop that, make the question optional in the Google Form and set
-`STAY_REQUIRED_IN_FORM = false` in `src/data/rsvp.ts`.
-
-If you add, remove or rename a question or an option in the Google Form, update `src/data/rsvp.ts`
-to match, otherwise answers are lost.
+The reply card links out to the Google Form "Hochzeit Laurin & Diana"
+(`src/data/rsvp.ts`). Answers stay in that form: names, overnight stay, food, and the trip in.
 
 ## Deploy
 

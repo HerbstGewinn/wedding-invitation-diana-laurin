@@ -1,9 +1,8 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
 
-// GitHub Pages project site: https://herbstgewinn.github.io/wedding-invitation-diana-laurin/
+// Production site on Vercel. `site` is used for hreflang and the share image.
 export default defineConfig({
-  site: 'https://herbstgewinn.github.io',
-  base: '/wedding-invitation-diana-laurin',
+  site: 'https://wedding-invitation-diana-laurin.vercel.app',
   trailingSlash: 'always',
 });

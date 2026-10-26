@@ -25,6 +25,10 @@ const abs = (p: string) => (site ? new URL(p, site).href : p);
     <meta property="og:description" content={t.meta.description} />
     <meta property="og:type" content="website" />
     <meta property="og:image" content={abs(`${base}img/og.jpg`)} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content={`${t.hero.names} · ${t.hero.date}`} />
+    <meta name="twitter:card" content="summary_large_image" />
     <link rel="icon" href={`${base}favicon.svg`} type="image/svg+xml" />
     <link rel="alternate" hreflang="de" href={abs(paths.de)} />
     <link rel="alternate" hreflang="ru" href={abs(paths.ru)} />
