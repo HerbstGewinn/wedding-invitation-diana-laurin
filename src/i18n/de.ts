@@ -132,7 +132,7 @@ const de = {
   },
 
   estonia: {
-    heading: "Was ihr in Estland sehen?",
+    heading: "Was ihr in Estland sehen könnt",
     intro: "Estland hat einiges zu bieten, besonders im Sommer – wenn die Sonne kaum schlafen geht und wir hoffentlich auch richtig sommerliche Temperaturen bekommen.",
     groupA: "Tallinn",
     groupB: "🌿 Ein bisschen weiter weg",
